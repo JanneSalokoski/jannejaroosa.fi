@@ -31,15 +31,16 @@ def main():
 
     # Read and convert markdown
     md = read_file(args.input)
-    html = markdown.markdown(md)
+    html = markdown.markdown(md, extensions=["tables"])
 
     # Read and fill template
     template = read_file("template.html")
     title = re.findall(r"<h1>(.+?)</h1>", html)[0]
-    print(title)
 
     out = template.replace("{title}", title)
     out = out.replace("{content}", html)
+
+    print(out)
 
     # Write to file
     write_file(args.output, out)
