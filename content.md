@@ -1,7 +1,6 @@
 # Roosa & Janne
 
-30.8.2025 klo 14.00
-Kallion kirkko
+<h2 class="subtitle">30.8.2025 klo 14.00 - Kallion kirkko</h2>
 
 ## RSVP
 
@@ -29,16 +28,16 @@ Vihkimisen jälkeen häävieraat voivat kirkon kuvauksellisilla portailla heitt�
 
 ### Ohjelma / aikataulu
 
-| klo | asia |
-| -------------- | --------------- |
-| 14.00 | Vihkiminen |
-| 15.00 | Hääjuhla alkaa |
-|       | Alkuruoka |
-|       | Pääruoka |
-|       | Jälkiruoka |
-|       | Hääkimppu lentää |
-|       | Sips & Dips |
-| 01.30 | Hyvää yötä, Jeesus myötä |
+| klo   | asia 
+| ----- | ----------
+| 14.00 | Vihkiminen 
+| 15.00 | Hääjuhla alkaa
+|       | Alkuruoka 
+|       | Pääruoka 
+|       | Jälkiruoka 
+|       | Hääkimppu lentää 
+|       | Sips & Dips 
+| 01.30 | Hyvää yötä, Jeesus myötä 
 
 ### Ruoka ja juoma
 

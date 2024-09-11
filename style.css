@@ -1,0 +1,60 @@
+:root {
+	--color-bg: #f5d4c9;
+	--color-fg: #0d0705;
+}
+*, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "EB Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
+	font-size: 14pt;
+
+	padding: 3rem;
+	padding-top: 5rem;
+
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+
+	max-width: 30rem;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	font-family: "Sacramento", cursive;
+	font-weight: 400;
+	font-style: normal;
+
+	font-size: 72pt;
+
+	text-align: center;
+
+	line-height: 80%;
+
+	padding-bottom: 4rem;
+}
+
+h2 {
+	padding-top: 3rem;
+	/* text-decoration: underline; */
+}
+
+h2.subtitle {
+	text-decoration: none;
+	font-style: italic;
+	padding-top: 0;
+	font-weight: 400;
+	text-align: center;
+}
+
+h3 {
+	padding-top: 1rem;
+	font-size: 14pt;
+}
