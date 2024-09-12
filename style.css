@@ -1,10 +1,18 @@
 :root {
 	--color-bg: #f5d4c9;
 	--color-fg: #0d0705;
+	--color-white: #f5e6e1;
 }
 *, html {
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	background-image: linear-gradient(transparent, var(--color-bg) 50vw), url("bg.jpg");
+	background-size: 100vw;
+	background-repeat: no-repeat;
+	background-color: var(--color-bg);
 }
 
 body {
@@ -18,7 +26,7 @@ body {
 	padding: 3rem;
 	padding-top: 5rem;
 
-	background-color: var(--color-bg);
+	/* background-color: var(--color-bg); */
 	color: var(--color-fg);
 
 	max-width: 30rem;
@@ -39,6 +47,8 @@ h1 {
 	line-height: 80%;
 
 	padding-bottom: 4rem;
+
+	color: var(--color-white);
 }
 
 h2 {
