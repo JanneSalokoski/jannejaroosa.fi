@@ -1,7 +1,3 @@
-# Roosa & Janne
-
-<h2 class="subtitle">30.8.2025 klo 14.00 - Kallion kirkko</h2>
-
 ## RSVP
 
 Tästä voit vastata hääkutsuun omalla nimelläsi. Järjestelmä ilmoittaa sinulle, kuinka monelle ja keille kaikille henkilöille kutsu on. Vastaamisen yhteydessä voit jättää ruokavaliotietosi, jotta voimme ottaa ne huomioon. Vastausta on mahdollista muuttaa 14.8.2025 saakka. Mikäli kutsutiedoissasi on jotain häikkää, ole yhteydessä.

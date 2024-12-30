@@ -1,19 +1,22 @@
 """" md_to_html.py - Parse md content to html """
 
-import markdown
 import argparse
-
 import re
+
+import markdown
+
 
 def read_file(file):
     """Read a file and return it's contents"""
     with open(file, "r") as f:
         return f.read()
 
+
 def write_file(file, content):
     """Write content to file"""
     with open(file, "w") as f:
         f.write(content)
+
 
 def main():
     """Run the program"""
@@ -35,7 +38,8 @@ def main():
 
     # Read and fill template
     template = read_file("template.html")
-    title = re.findall(r"<h1>(.+?)</h1>", html)[0]
+    # title = re.findall(r"<h1>(.+?)</h1>", html)[0]
+    title = "Roosa & Janne"
 
     out = template.replace("{title}", title)
     out = out.replace("{content}", html)
@@ -44,6 +48,7 @@ def main():
 
     # Write to file
     write_file(args.output, out)
+
 
 if __name__ == "__main__":
     main()
