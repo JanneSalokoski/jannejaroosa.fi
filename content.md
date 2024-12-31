@@ -1,9 +1,3 @@
-## RSVP
-
-Tästä voit vastata hääkutsuun omalla nimelläsi. Järjestelmä ilmoittaa sinulle, kuinka monelle ja keille kaikille henkilöille kutsu on. Vastaamisen yhteydessä voit jättää ruokavaliotietosi, jotta voimme ottaa ne huomioon. Vastausta on mahdollista muuttaa 14.8.2025 saakka. Mikäli kutsutiedoissasi on jotain häikkää, ole yhteydessä.
-
-![lupiini](lupiini.png "Lupiini")
-
 ## Vihkiminen
 
 ### Kallion kirkko
@@ -18,17 +12,15 @@ Tilaisuus noudattaa jotakuinkin [avioliiton siunaamisen kaavaa](https://kirkkoka
 
 Vihkimisen jälkeen häävieraat voivat kirkon kuvauksellisilla portailla heittää eläviä matoja hääparin päälle :shrug:
 
-![lupiini](lupiini.png "Lupiini")
-
 ## Hääjuhla
 
 ### Soutupaviljonki
 
 [Soutupaviljonki](https://soutupaviljonki.fi/) on alunperin Helsingin olympialaisia varten rakennettu kaunis ja historiallinen puutalo aivan Helsingin keskustan kupeessa, kauniilla merenrantapaikalla.
 
-### Ohjelma / aikataulu
+### Aikataulu
 
-| klo   | asia 
+| klo   | Asia 
 | ----- | ----------
 | 14.00 | Vihkiminen 
 | 15.00 | Hääjuhla alkaa
@@ -59,20 +51,14 @@ Mikäli tahdot pitää lyhyen morsianta maasta taivaisiin ylistävän puheen, ol
 
 Noin kello 21. aloitamme mm. tanssia ja laulua sisältävät jatkot. Tähän asti lapset ovat jopa toivottuja osallistujia, mutta jatkojen aikana heidän olisi suotavaa siirtyä johonkin muualle. Suosittelemme kotibileitä, sillä vanhemmat ovat häissämme.
 
-![lupiini](lupiini.png "Lupiini")
-
 ## Saapuminen
 
 Julkisilla: reitit ja kartat
 Autolla: pysäköinti + liityntäpysäköinti
 
-![lupiini](lupiini.png "Lupiini")
-
 ## Häälahja
 
 Pls. give us money so we can go to Italy yes?
-
-![lupiini](lupiini.png "Lupiini")
 
 ## FAQ
 
