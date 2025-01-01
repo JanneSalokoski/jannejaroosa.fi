@@ -1,0 +1,58 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+*, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background: #ddcec4;
+    color: #3d342e;
+
+    font-family: "EB Garamond", serif;
+    font-size: 16pt;
+    line-height: 125%;
+
+    padding: 5rem;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+.responses {
+}
+
+.responses .table {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    border: 2px solid #3d342e;
+
+    font-size: 90%;
+}
+
+.Response {
+    list-style-type: none;
+    display: contents;
+}
+
+.Response:nth-child(odd) li {
+    background: #d1c2b7;
+}
+
+.Response.header li {
+    font-weight: bold;
+    border-bottom: 2px solid #3d342e;
+    background: #f0dfd4;
+}
+
+.Response li {
+    padding: 0.5rem;
+}
