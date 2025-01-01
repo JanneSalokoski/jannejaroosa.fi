@@ -16,6 +16,18 @@ function clear_form(name_field, diet_field, yes_button, no_button) {
     set_radio_classes(true, yes_button, no_button);
 }
 
+function send_response(response) {
+    fetch("http://127.0.0.1:8001/responses/", {
+        method: "POST",
+        body: JSON.stringify(response),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then( (res) => res.json() )
+        .then( (json) => console.log(json) );
+}
+
 function init() {
     let state = {
         name: "",
@@ -51,7 +63,7 @@ function init() {
     let submit_button = document.querySelector(".form input#save");
     submit_button.onclick = (event) => {
         if (state.name !== "") {
-            console.log(state);
+            send_response(state);
             clear_form(name_field, diet_field, yes_button, no_button);
 
             state.name = "";
