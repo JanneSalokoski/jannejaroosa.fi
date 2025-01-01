@@ -42,7 +42,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 
-	background: linear-gradient(var(--color-blue-transparent), var(--color-blue-transparent)), url("kallio.png");
+	background: linear-gradient(var(--color-blue-transparent), var(--color-blue-transparent)), url("res/kallio.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,7 +85,7 @@ main h2:not(:first-of-type):before {
     content: "";
     display: block;
 
-    background-image: url("lupiini2.png");
+    background-image: url("res/lupiini2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; /* Ensures the entire image fits within the element */
@@ -296,7 +296,7 @@ input[type="button"]:active {
     margin-left: auto;
     margin-right: auto;
 
-    background: url("arrow.png");
+    background: url("res/arrow.png");
     background-repeat: no-repeat;
 
     transform: translateX(2rem);
