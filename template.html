@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#12161d" >
+
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="icon" href="favicon/favicon.ico"
+        sizes="16x16 32x32 48x48 64x64">
+
 
     <title>{title}</title>
 
@@ -15,24 +22,35 @@
   <body>
     <h1>Roosa &amp; Janne</h1>
     <h2 class="subtitle">30.8.2025 klo 14.00 - Kallion kirkko</h2>
+        <div class="arrow">
+        </div>
     <main>
         <div class="rsvp">
             <h2>Tervetuloa häihimme!</h2>
             <p>Tässä voit kertoa, pääsetkö osallistumaan juhlaan. Toivomme vastauksia mahdollisimman pian, kuitenkin viimeistään 14.8.2025 mennessä. Kutsuun voit vastata myös viestitse meille.</p>
             <div class="form">
                 <label for="name">Nimesi:</label>
-                <input id="name" type="text" value="Roosa Saranpää" />
+                <input id="name" type="text" placeholder="Mikko Mallikas" />
 
                 <label for="diet">Ruokavalio:</label>
                 <textarea id="diet" placeholder="esim. gluteeniton ja maidoton"></textarea>
 
                 <label for="rsvp">Osallistun:</label>
-                <input id="rsvp" type="checkbox" checked />
+                <div class="radio">
+                    <input id="yes" name="rsvp" type="button" value="osallistun" class="checked" />
+                    <input id="no" name="rsvp" type="button" value="en osallistu" />
+                </div>
 
                 <input id="save" type="submit" value="Lähetä vastaus" />
+            </div>
+            <div class="confirmation hidden">
+                <p>Kiitos vastauksestasi!</p>
+                <p>Voit muuttaa tietojasi täyttämällä lomakkeen uudestaan samalla nimellä, tai viestitse Jannelle tai Roosalle.</p>
+                <input id="another" type="button" value="Ilmoita toinen henkilö" />
             </div>
         </div>
         {content}
     </main>
+    <script src="main.js"></script>
   </body>
 </html>

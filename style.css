@@ -7,10 +7,18 @@
     --color-border: #0d0e24;
     --color-purple: #38286c;
 }
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 *, html {
 	margin: 0;
 	padding: 0;
 }
+
 
 body {
 	font-family: "EB Garamond", serif;
@@ -34,7 +42,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 
-	background-image: linear-gradient(var(--color-blue-transparent), var(--color-blue-transparent)), url("kallio.png");
+	background: linear-gradient(var(--color-blue-transparent), var(--color-blue-transparent)), url("kallio.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,11 +52,27 @@ body {
 
 }
 
+@media (max-width: 800px) {
+    .subtitle {
+        color: red;
+        margin-bottom: 30vh;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+
+    html {
+        background-color: #222239;
+    }
+
+}
+
 main {
     padding: 3rem;
     border: 0.2rem solid var(--color-border);
 
-	max-width: 30rem;
+	max-width: 40rem;
 
     margin-left: auto;
     margin-right: auto;
@@ -71,6 +95,9 @@ main h2:not(:first-of-type):before {
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
+
+    transform: scaleX(-1) rotate(20deg);
 }
 
 h1 {
@@ -85,7 +112,7 @@ h1 {
 
 	line-height: 80%;
 
-    margin-top: 30vh;
+    margin-top: 15vh;
 	/* padding-bottom: 4rem; */
     margin-bottom: 4rem;
 
@@ -109,7 +136,7 @@ h2.subtitle {
 
 	color: var(--color-white);
 
-	margin-bottom: 50vh;
+	margin-bottom: 10vh;
 }
 
 h3 {
@@ -191,8 +218,8 @@ table td:not(:first-child) {
     margin-bottom: 3rem;
 
     display: grid;
-    grid-template-columns: 30% auto;
-    gap: 0.5rem;
+    grid-template-columns: auto auto;
+    gap: 1rem;
 
     font-size: 90%;
 
@@ -216,4 +243,84 @@ input, textarea {
 input[type="checkbox"] {
     width: 1em;
     height: 1em;
+}
+
+input, textarea {
+    background: #ebe1db;
+    color: inherit;
+    border: 1px solid var(--color-border);
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 0;
+}
+
+input[type="submit"]:hover,
+input[type="text"]:hover,
+input[type="button"]:hover,
+textarea:hover {
+    background: #f0e9e5;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="text"]:focus,
+textarea:focus {
+    background: #f0e9e5;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active {
+    background: #ebe1db;
+}
+
+.radio {
+    text-align: left;
+}
+
+.radio input.checked {
+    color: inherit;
+    background: #fff7f2;
+}
+
+.radio input {
+    color: gray;
+    background: #e6e1df;
+}
+
+
+.arrow {
+    width: 10rem;
+    height: 10rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background: url("arrow.png");
+    background-repeat: no-repeat;
+
+    transform: translateX(2rem);
+}
+
+.confirmation p {
+    margin-bottom: 1rem;
+}
+
+.confirmation input {
+    font-size: 90%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 14rem;
+
+    display: block;
+}
+
+.confirmation {
+    margin-bottom: 2rem;
+}
+
+.form.hidden, .confirmation.hidden {
+    display: none;
 }
