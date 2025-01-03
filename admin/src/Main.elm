@@ -1,12 +1,15 @@
 module Main exposing (..)
 
 import Browser
+import Date exposing (fromPosix)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
+import Iso8601 as Iso
 import Json.Decode as Decode exposing (Decoder, bool, int, string)
 import Json.Decode.Pipeline as DP
+import Time exposing (Posix, toHour, toMinute, toSecond, utc)
 
 
 
@@ -32,7 +35,7 @@ type alias Response =
     , name : String
     , diet : String
     , rsvp : Bool
-    , time : String
+    , time : Posix
     }
 
 
@@ -96,7 +99,9 @@ subscriptions _ =
 
 view : Model -> Html Msg
 view model =
-    viewResponses model
+    div [ id "App" ]
+        [ viewResponses model
+        ]
 
 
 viewResponses : Model -> Html Msg
@@ -126,6 +131,23 @@ viewResponseHeaders =
         ]
 
 
+formatTime : Time.Posix -> String
+formatTime time =
+    let
+        date =
+            Debug.log "date" (Date.fromPosix utc time)
+    in
+    String.pad 2 '0' (String.fromInt (Date.day date))
+        ++ "."
+        ++ String.pad 2 '0' (String.fromInt (Date.monthNumber date))
+        ++ "."
+        ++ String.pad 2 '0' (String.fromInt (Date.year date))
+        ++ " "
+        ++ String.pad 2 '0' (String.fromInt (toHour utc time))
+        ++ ":"
+        ++ String.pad 2 '0' (String.fromInt (toMinute utc time))
+
+
 viewResponse : Response -> Html Msg
 viewResponse response =
     ul [ class "Response" ]
@@ -141,7 +163,7 @@ viewResponse response =
                     "Ei osallistu"
                 )
             ]
-        , li [ class "time" ] [ text response.time ]
+        , li [ class "time" ] [ text (formatTime response.time) ]
         ]
 
 
@@ -157,4 +179,4 @@ responseDecoder =
         |> DP.required "name" string
         |> DP.required "diet" string
         |> DP.required "rsvp" bool
-        |> DP.required "time" string
+        |> DP.required "time" Iso.decoder

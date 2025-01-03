@@ -1,0 +1,326 @@
+:root {
+	--color-bg: #ddcec4;
+	--color-fg: #3d342e;
+	--color-white: #f5e6e1;
+    --color-blue: #314261;
+    --color-blue-transparent: rgba(19,20,51,0.7);
+    --color-border: #0d0e24;
+    --color-purple: #38286c;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+*, html {
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+	font-family: "EB Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
+	font-size: 16pt;
+    line-height: 150%;
+
+	/* padding: 3rem; */
+	padding-top: 5rem;
+
+	/* background-color: var(--color-bg); */
+	color: var(--color-fg);
+
+
+    width: 100vw;
+    height: 100vh;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	background: linear-gradient(var(--color-blue-transparent), var(--color-blue-transparent)), url("res/kallio.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* border: 6rem solid var(--color-fg); */
+
+}
+
+@media (max-width: 800px) {
+    .subtitle {
+        color: red;
+        margin-bottom: 30vh;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+
+    html {
+        background-color: #222239;
+    }
+
+}
+
+main {
+    padding: 3rem;
+    border: 0.2rem solid var(--color-border);
+
+	max-width: 40rem;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10rem;
+
+    background-color: var(--color-bg);
+}
+
+main h2:not(:first-of-type):before {
+    content: "";
+    display: block;
+
+    background-image: url("res/lupiini2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* Ensures the entire image fits within the element */
+
+    width: 6em;
+    height: 4em;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+
+    transform: scaleX(-1) rotate(20deg);
+}
+
+h1 {
+    /* font-family: "Great Vibes", cursive, serif; */
+    font-family: "Dancing Script", serif;
+	font-weight: 800;
+	font-style: normal;
+
+	font-size: 72pt;
+
+	text-align: center;
+
+	line-height: 80%;
+
+    margin-top: 15vh;
+	/* padding-bottom: 4rem; */
+    margin-bottom: 4rem;
+
+	color: var(--color-white);
+}
+
+h2 {
+	padding-top: 0rem;
+	/* text-decoration: underline; */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2.subtitle {
+	text-decoration: none;
+	font-style: italic;
+	padding-top: 0;
+	font-weight: 600;
+    font-size: 125%;
+	text-align: center;
+
+	color: var(--color-white);
+
+	margin-bottom: 10vh;
+}
+
+h3 {
+	/* font-size: 14pt; */
+    margin-bottom: 0.5rem;
+}
+
+p, table {
+    margin-bottom: 2rem;
+}
+
+img {
+	width: 10rem;
+	/* transform: rotate(80deg); */
+
+	margin-left: auto;
+	margin-right: auto;
+
+	text-align: center;
+
+	display: block;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+a {
+    color: var(--color-blue);
+}
+
+a:visited {
+    color: var(--color-purple);
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+
+    min-width: 60%;
+
+    /* border: 2px solid var(--color-border); */
+
+    border-collapse: collapse;
+
+}
+
+table th, table td {
+    padding: 0.25rem 1rem 0.25rem 1rem;
+}
+
+table th {
+    text-align: left;
+}
+
+table thead {
+    border-bottom: 2px solid var(--color-fg);
+}
+
+table th:first-child,
+table td:first-child {
+    text-align: right;
+}
+
+table th:not(:first-child),
+table td:not(:first-child) {
+    border-left: 2px solid var(--color-fg);
+}
+
+.rsvp .name {
+    font-weight: bold;
+}
+
+.rsvp .form {
+    width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 3rem;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+
+    font-size: 90%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+input#save {
+    width: 14rem;
+
+    grid-column: 1 / span 2;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, textarea {
+    padding: 0.25rem;
+}
+
+input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+}
+
+input, textarea {
+    background: #ebe1db;
+    color: inherit;
+    border: 1px solid var(--color-border);
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 0;
+}
+
+input[type="submit"]:hover,
+input[type="text"]:hover,
+input[type="button"]:hover,
+textarea:hover {
+    background: #f0e9e5;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active,
+input[type="text"]:focus,
+textarea:focus {
+    background: #f0e9e5;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active {
+    background: #ebe1db;
+}
+
+.radio {
+    text-align: left;
+}
+
+.radio input.checked {
+    color: inherit;
+    background: #fff7f2;
+}
+
+.radio input {
+    color: gray;
+    background: #e6e1df;
+}
+
+
+.arrow {
+    width: 10rem;
+    height: 10rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background: url("res/arrow.png");
+    background-repeat: no-repeat;
+
+    transform: translateX(2rem);
+}
+
+.confirmation p {
+    margin-bottom: 1rem;
+}
+
+.confirmation input {
+    font-size: 90%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 14rem;
+
+    display: block;
+}
+
+.confirmation {
+    margin-bottom: 2rem;
+}
+
+.form.hidden, .confirmation.hidden {
+    display: none;
+}
