@@ -54,7 +54,7 @@ init : () -> ( Model, Cmd Msg )
 init _ =
     ( Model Loading
     , Http.get
-        { url = "http://127.0.0.1:8001/responses/"
+        { url = "http://api.jannejaroosa.fi:8000/responses/"
         , expect = Http.expectJson Loaded responsesDecoder
         }
     )
