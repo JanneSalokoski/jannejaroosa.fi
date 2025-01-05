@@ -7191,7 +7191,7 @@ var $author$project$Main$init = function (_v0) {
 		$elm$http$Http$get(
 			{
 				expect: A2($elm$http$Http$expectJson, $author$project$Main$Loaded, $author$project$Main$responsesDecoder),
-				url: 'http://api.jannejaroosa.fi:8000/responses/'
+				url: 'https://api.jannejaroosa.fi/responses/'
 			}));
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;

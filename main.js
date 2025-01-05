@@ -17,7 +17,7 @@ function clear_form(name_field, diet_field, yes_button, no_button) {
 }
 
 function send_response(response) {
-    fetch("http://api.jannejaroosa.fi:8000/responses/", {
+    fetch("https://api.jannejaroosa.fi/responses/", {
         method: "POST",
         body: JSON.stringify(response),
         headers: {
