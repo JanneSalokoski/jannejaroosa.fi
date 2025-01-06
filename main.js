@@ -34,7 +34,7 @@ function send_response(response) {
 function send_progress(time, headline) {
     fetch(`${API_URL}/progress/`, {
         method: "POST",
-        body: JSON.stringify({time: Math.floor(time), headline: headline}),
+        body: JSON.stringify({timestamp: Math.floor(time), headline: headline}),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
