@@ -27,8 +27,8 @@ function send_response(response) {
         }
     })
         .then( (res) => res.json() )
-        // .then( (json) => console.log(json)
-    );
+        .then( (json) => console.log(json) )
+    ;
 }
 
 function send_progress(time, headline) {
@@ -40,8 +40,8 @@ function send_progress(time, headline) {
         }
     })
         .then( (res) => res.json() )
-        // .then( (json) => console.log(json)
-    );
+        .then( (json) => console.log(json) )
+    ;
 }
 
 function init() {
