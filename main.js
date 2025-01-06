@@ -1,3 +1,5 @@
+const API_URL = "https://api.jannejaroosa.fi"
+
 function set_radio_classes(participate, yes_button, no_button) {
     if (participate == true) {
         yes_button.classList.add("checked")
@@ -17,7 +19,7 @@ function clear_form(name_field, diet_field, yes_button, no_button) {
 }
 
 function send_response(response) {
-    fetch("https://api.jannejaroosa.fi/responses/", {
+    fetch(`${API_URL}/responses/`, {
         method: "POST",
         body: JSON.stringify(response),
         headers: {
@@ -25,7 +27,21 @@ function send_response(response) {
         }
     })
         .then( (res) => res.json() )
-        .then( (json) => console.log(json) );
+        // .then( (json) => console.log(json)
+    );
+}
+
+function send_progress(time, headline) {
+    fetch(`${API_URL}/progress/`, {
+        method: "POST",
+        body: JSON.stringify({time: Math.floor(time), headline: headline}),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then( (res) => res.json() )
+        // .then( (json) => console.log(json)
+    );
 }
 
 function init() {
@@ -83,6 +99,31 @@ function init() {
         confirmation.classList.add("hidden")
         form.classList.remove("hidden")
     }
+
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+    };
+
+    let seen = new Set();
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !seen.has(entry.target)) {
+                seen.add(entry.target);
+                // console.log(entry.time, entry.target.innerText);
+                send_progress(entry.time, entry.target.innerText);
+            }
+        })
+    }
+
+    const observer = new IntersectionObserver(callback, options);
+
+    const target = document.querySelectorAll("h2,h3");
+    target.forEach(element => {
+        observer.observe(element);
+    });
+
 }
 
 init()
