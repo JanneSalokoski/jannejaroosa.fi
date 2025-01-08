@@ -17,12 +17,8 @@ apiUrl =
 
 buildEndpointUrl : String -> String
 buildEndpointUrl endpoint =
-    let
-        a =
-            Debug.log "url" apiUrl
-    in
     if debug then
         apiUrl ++ endpoint ++ ".json"
 
     else
-        apiUrl ++ endpoint
+        apiUrl ++ endpoint ++ "/"

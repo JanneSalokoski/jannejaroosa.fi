@@ -5572,10 +5572,8 @@ var $author$project$Features$Progress$FetchProgressSuccess = function (a) {
 };
 var $author$project$Api$Api$debug = false;
 var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
-var $elm$core$Debug$log = _Debug_log;
 var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
-	var a = A2($elm$core$Debug$log, 'url', $author$project$Api$Api$apiUrl);
-	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : _Utils_ap($author$project$Api$Api$apiUrl, endpoint);
+	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : ($author$project$Api$Api$apiUrl + (endpoint + '/'));
 };
 var $elm$json$Json$Decode$decodeString = _Json_runOnString;
 var $elm$http$Http$BadStatus_ = F2(
@@ -6464,6 +6462,7 @@ var $author$project$Features$Responses$FetchResponsesError = function (a) {
 var $author$project$Features$Responses$FetchResponsesSuccess = function (a) {
 	return {$: 'FetchResponsesSuccess', a: a};
 };
+var $elm$core$Debug$log = _Debug_log;
 var $author$project$Shared$Types$Response = F5(
 	function (id, name, diet, rsvp, time) {
 		return {diet: diet, id: id, name: name, rsvp: rsvp, time: time};
