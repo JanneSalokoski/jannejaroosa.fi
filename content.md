@@ -1,20 +1,25 @@
 ## Avioliiton siunaaminen
 
-### Kallion kirkko
-
-Kallion kirkko on vuonna 1912 valmistunut kivikirkko. Tämän 65 metriä korkean kellotornin alla lausumme toisillemme _tahdon_ ensi vuoden elokuussa. Hääkirkkoon voit tutustua tarkemmin [Helsingin seurakuntien sivuilla](https://www.helsinginseurakunnat.fi/kallionkirkko/artikkelit/k2hvhc5hl).
-
-### Avioliiton siunaaminen
-
-Tilaisuus noudattaa jotakuinkin [avioliiton siunaamisen kaavaa](https://kirkkokasikirja.fi/toim/04c_aviol_siun.pdf) ja se kestää noin 30 minuuttia.
-
-Paikalle kannattaa tulla hyvissä ajoin ja kirkkosalia täyttää rohkeasti
-edestä lähtien. Voit valita istumapuolesi vapaasti, suvustasi riippumatta.
+Avioliittomme siunaaminen tapahtuu klo 14 alkaen Kallion kirkossa. Tilaisuus noudattaa jotakuinkin [avioliiton siunaamisen kaavaa](https://kirkkokasikirja.fi/toim/04c_aviol_siun.pdf) ja se kestää noin 30 minuuttia.
 
 Tilaisuuden jälkeen häävieraat voivat tervehtiä tuoretta hääparia kirkon
-kuvauksellisella puistokujalla.
+kuvauksellisella puistokujalla, jonka jälkeen siirrymme jatkamaan juhlia
+Soutupaviljongille Töölöön.
+
+### Kallion kirkko
+
+Kallion kirkko on vuonna 1912 valmistunut kivikirkko. Tämän 65 metriä korkean kellotornin alla lausumme toisillemme _tahdon_. Hääkirkkoon voit tutustua tarkemmin [Helsingin seurakuntien sivuilla](https://www.helsinginseurakunnat.fi/kallionkirkko/artikkelit/k2hvhc5hl).
 
 ## Hääjuhla
+
+### Aikataulu
+
+| klo   | &nbsp;
+| ----- | ----------
+| 14.00 | Avioliiton siunaaminen Kallion kirkossa
+| noin 15.30 | Alkumaljat Soutupaviljongilla
+|       | Ruokailua, puheita, ohjelmaa ja seurustelua
+| 01.30 | Valomerkki
 
 ### Soutupaviljonki
 
@@ -22,62 +27,44 @@ kuvauksellisella puistokujalla.
 
 Juhlatila on rakennuksen toisessa kerroksessa, eikä käytössä ole hissiä.
 WC-tilat sijaitsevat ensimmäisessä kerroksessa, mutta toisen kerroksen
-henkilöstön WC-tiloja voi käyttää, mikäli portaiden kulkeminen on hankalaa.
-
-### Aikataulu
-
-| klo   | Asia 
-| ----- | ----------
-| 14.00 | Avioliiton siunaaminen 
-| 15.00 | Hääjuhla alkaa
-|       | Alkuruoka 
-|       | Pääruoka 
-|       | Hääkakku 
-|       | Hääkimpun heitto 
-|       | Yöpalaa
-| 01.30 | Juhlat päättyvät
+henkilöstön WC-tiloja voi käyttää, jos portaiden kulkeminen on hankalaa.
 
 ### Ruoka ja juoma
 
-Tarjoamme tilaisuudessa ruokaa ja juomaa. Ilmoittatumisen yhteydessä annetut ruokavaliotiedot otetaan huomioon tarjoiluissa. Tarvittaessa voimme varmistaa ruokailuun liittyviä seikkoja juhlapaikalta.
+Tarjoamme tilaisuudessa ruokaa ja juomaa. Ilmoittautumisen yhteydessä annetut ruokavaliotiedot otetaan huomioon tarjoiluissa. Tarvittaessa voimme varmistaa ruokailuun liittyviä seikkoja juhlapaikalta.
 
 ### Valokuvaus
 
-Mukanamme hääjuhlassa on valokuvaaja. Hän ottaa ns. virallisia kuvia meistä, päivän tärkeistä hetkistä ja toki myös potretteja hääparin kanssa. Jaamme kuvat myös vieraiden kanssa. Kannustamme teitä ottamaan itse varsinkin ns. fiiliskuvia, jotka voi ladata [jaettuun Google-drive kansioon](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwiz07XbirmIAxWvLBAIHUqNBBgQwqsBegQIDxAG&usg=AOvVaw0aHtehaphMhOCAkCydRLZU) kaikkien nähtäviksi.
+Mukanamme hääjuhlassa on valokuvaaja, joka ottaa virallisia kuvia päivän tärkeistä hetkistä. Jaamme kuvat myös vieraiden kanssa. Kannustamme teitä ottamaan myös itse kuvia ja lataamaan ne [jaettuun Google-drive kansioon](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwiz07XbirmIAxWvLBAIHUqNBBgQwqsBegQIDxAG&usg=AOvVaw0aHtehaphMhOCAkCydRLZU) kaikkien nähtäviksi.
 
 ### Pukukoodi
 
-Tilaisuuden pukukoodina toimii _puku_, eli ei ole välttämätöntä kaivaa mustaa
-puvuntakkia kaapista. Tärkeintä on tietysti, ettei morsian jää vieraiden
-varjoon. Tästä ei onneksi ole Roosan kohdalla pelkoa!
+Tilaisuuden pukukoodi on kesäisen juhlava. Tärkeintä meille on, että asussasi on
+mukava juhlia.
 
 ### Puheet
 
-Hääjuhlassa voi pitää halutessaan lyhyitä puheita, eikä niitä varten tarvitse
-erikseen varata aikaa tms. Ohjelmassa on tilaa vapaalle sanalle, ja silloin
-puheiden pitäminen on vapaata.
+Olemme varanneet aikaa ruokailun lomaan lyhyille puheille. Jos haluat pitää
+puheen, on hyvä idea mainita asiasta kaasoille (Ella Saranpää-Hakoköngäs & Ella
+Pauna).
 
 ### Jatkot
 
-Noin kello 21. aloitamme mm. tanssia ja laulua sisältävät jatkot. Tähän asti lapset ovat jopa toivottuja osallistujia, mutta jatkojen ajaksi heidän olisi suotavaa siirtyä johonkin muualle.
+Noin kello 21 alkavat mm. tanssia ja laulua sisältävät jatkot.
 
 ## Saapuminen
 
-Julkisilla: reitit ja kartat
-Autolla: pysäköinti + liityntäpysäköinti
+Kallion kirkko sijaitsee osoitteessa [Itäinen Papinkatu 2, 00530 Helsinki](https://maps.app.goo.gl/fuFGW954Fx5FcEr89). Julkisilla sinne pääsee keskustasta esimerkiksi raitiovaunuilla numero 3 ja 9 ja Pasilasta raitiovanuilla 2 ja 9. Parkkipaikkoja kirkon läheisyydessä on rajoitetusti, joten suosittelemme tutustumaan [HSL:n liityntäpysäköintiin](https://www.hsl.fi/matkustaminen/liityntapysakointi?display=map&type=all-facilities).
 
-Kallion kirkko sijaitsee osoitteessa [Itäinen Papinkatu 2, 00530 Helsinki](https://maps.app.goo.gl/fuFGW954Fx5FcEr89). Julkisilla sinne pääsee keskustasta raitiovaunuilla numero 9 ja 3 ja Pasilasta raitiovanuilla 9 ja 2. Parkkipaikkoja kirkon läheisyydessä ei ole hirveän paljoa, joten suosittelemme tutustumaan [HSL:n liityntäpysäköintiin](https://www.hsl.fi/matkustaminen/liityntapysakointi?display=map&type=all-facilities).
-
-Soutupaviljonki sijaitsee osoitteessa [Merikannontie 4, 00260 Helsinki](https://maps.app.goo.gl/ULRdT5Y2AD2wBPjGA). Kirkolta sinne pääsee raitiovaunuilla 8T, 1T ja 2, mutta matka sisältää hieman kävelyä. Todennäköisesti vaivattomin tapa siirtyä kirkolta juhlapaikalle on jaettu tilataksi.
+Soutupaviljonki sijaitsee osoitteessa [Merikannontie 4, 00260 Helsinki](https://maps.app.goo.gl/ULRdT5Y2AD2wBPjGA). Kirkolta sinne pääsee raitiovaunuilla 1 ja 8. Matka sisältää noin kilometrin verran kävelyä. Paikalle pääsee helposti myös taksilla, bestmanit (Jalmari Salovirta & Jori Vismanen) avustavat mielellään taksin tilaamisessa.
 
 ## Häälahja
 
-Meille tärkeintä on, että saamme jakaa tämän tärkeän päivän kanssanne, emmekä
-tarvitse lahjoja. Halutessanne voitte tehdä pienen lahjoituksen tilille: FIXX
-XXXX XXXX XXXXXX.
+Meille tärkeintä on, että saamme jakaa tärkeän päivän kanssanne. Jos kuitenkin
+haluatte muistaa meitä, toivomme tavaroiden sijaan muistamista
+häämatkatilillemme FI76 5253 1520 1026 59.
 
 ## Lisätietoa
 
-Lisätietoa häihin liittyen voi kysyä Jannelta esimerkiksi viestitse [041 313
-0193](tel://0413130193) tai sähköpostitse
-[salokoski.janne@gmail.com](email://salokoski.janne@gmail.com)
+Lisätietoa häihin liittyen voi kysyä esimerkiksi viestitse Jannelta [(041 313
+0193)](tel://+358413130193) tai Roosalta [(044 607 9227)](tel://+358446079227)
