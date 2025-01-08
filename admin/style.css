@@ -24,42 +24,51 @@ body {
     height: 100vh;
 }
 
-#App {
-    background: #ddcec4;
-
-    padding: 2rem;
+.app {
+    display: grid;
+    gap: 1rem;
 }
 
 h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-.responses {
+.Feature {
+    background: #ddcec4;
+
+    padding: 1rem;
 }
 
-.responses .table {
+.ItemList {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
     border: 2px solid #3d342e;
 
     font-size: 90%;
 }
 
-.Response {
+.ItemList.responses {
+    grid-template-columns: repeat(5, auto);
+}
+
+.ItemList.progress {
+    grid-template-columns: repeat(3, auto);
+}
+
+.ItemList ul {
     list-style-type: none;
     display: contents;
 }
 
-.Response:nth-child(odd) li {
+.ItemList ul:nth-child(odd) li {
     background: #d1c2b7;
 }
 
-.Response.header li {
+.ItemList .header li {
     font-weight: bold;
     border-bottom: 2px solid #3d342e;
-    background: #f0dfd4;
+    background: #f0dfd4 !important;
 }
 
-.Response li {
+.ItemList li {
     padding: 0.5rem;
 }

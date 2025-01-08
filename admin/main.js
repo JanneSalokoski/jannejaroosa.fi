@@ -5501,12 +5501,74 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Main$Loaded = function (a) {
-	return {$: 'Loaded', a: a};
+var $author$project$Main$Model = F2(
+	function (responsesModel, progressModel) {
+		return {progressModel: progressModel, responsesModel: responsesModel};
+	});
+var $author$project$Main$ProgressMsg = function (a) {
+	return {$: 'ProgressMsg', a: a};
 };
-var $author$project$Main$Loading = {$: 'Loading'};
-var $author$project$Main$Model = function (state) {
-	return {state: state};
+var $author$project$Main$ResponsesMsg = function (a) {
+	return {$: 'ResponsesMsg', a: a};
+};
+var $elm$core$Platform$Cmd$batch = _Platform_batch;
+var $author$project$Features$Progress$FetchProgress = {$: 'FetchProgress'};
+var $author$project$Features$Progress$Model = F3(
+	function (progress, loading, error) {
+		return {error: error, loading: loading, progress: progress};
+	});
+var $author$project$Features$Progress$init = function (_v0) {
+	return _Utils_Tuple2(
+		A3($author$project$Features$Progress$Model, _List_Nil, false, $elm$core$Maybe$Nothing),
+		A2(
+			$elm$core$Task$perform,
+			function (_v1) {
+				return $author$project$Features$Progress$FetchProgress;
+			},
+			$elm$core$Task$succeed(_Utils_Tuple0)));
+};
+var $author$project$Features$Responses$FetchResponses = {$: 'FetchResponses'};
+var $author$project$Features$Responses$Model = F3(
+	function (responses, loading, error) {
+		return {error: error, loading: loading, responses: responses};
+	});
+var $author$project$Features$Responses$init = function (_v0) {
+	return _Utils_Tuple2(
+		A3($author$project$Features$Responses$Model, _List_Nil, false, $elm$core$Maybe$Nothing),
+		A2(
+			$elm$core$Task$perform,
+			function (_v1) {
+				return $author$project$Features$Responses$FetchResponses;
+			},
+			$elm$core$Task$succeed(_Utils_Tuple0)));
+};
+var $elm$core$Platform$Cmd$map = _Platform_map;
+var $author$project$Main$init = function (_v0) {
+	var _v1 = $author$project$Features$Responses$init(_Utils_Tuple0);
+	var responsesModel = _v1.a;
+	var responsesCmd = _v1.b;
+	var _v2 = $author$project$Features$Progress$init(_Utils_Tuple0);
+	var progressModel = _v2.a;
+	var progressCmd = _v2.b;
+	return _Utils_Tuple2(
+		A2($author$project$Main$Model, responsesModel, progressModel),
+		$elm$core$Platform$Cmd$batch(
+			_List_fromArray(
+				[
+					A2($elm$core$Platform$Cmd$map, $author$project$Main$ResponsesMsg, responsesCmd),
+					A2($elm$core$Platform$Cmd$map, $author$project$Main$ProgressMsg, progressCmd)
+				])));
+};
+var $elm$core$Platform$Sub$batch = _Platform_batch;
+var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
+var $author$project$Main$subscriptions = function (model) {
+	return $elm$core$Platform$Sub$none;
+};
+var $author$project$Features$Progress$FetchProgressError = function (a) {
+	return {$: 'FetchProgressError', a: a};
+};
+var $author$project$Features$Progress$FetchProgressSuccess = function (a) {
+	return {$: 'FetchProgressSuccess', a: a};
 };
 var $elm$json$Json$Decode$decodeString = _Json_runOnString;
 var $elm$http$Http$BadStatus_ = F2(
@@ -6296,7 +6358,111 @@ var $elm$http$Http$get = function (r) {
 		{body: $elm$http$Http$emptyBody, expect: r.expect, headers: _List_Nil, method: 'GET', timeout: $elm$core$Maybe$Nothing, tracker: $elm$core$Maybe$Nothing, url: r.url});
 };
 var $elm$json$Json$Decode$list = _Json_decodeList;
-var $author$project$Main$Response = F5(
+var $author$project$Shared$Types$Progress = F3(
+	function (headline, amount, average) {
+		return {amount: amount, average: average, headline: headline};
+	});
+var $elm$json$Json$Decode$float = _Json_decodeFloat;
+var $elm$json$Json$Decode$int = _Json_decodeInt;
+var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
+var $elm$json$Json$Decode$field = _Json_decodeField;
+var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
+	function (key, valDecoder, decoder) {
+		return A2(
+			$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom,
+			A2($elm$json$Json$Decode$field, key, valDecoder),
+			decoder);
+	});
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $author$project$Api$Progress$progressDecoder = A3(
+	$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+	'average',
+	$elm$json$Json$Decode$float,
+	A3(
+		$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+		'amount',
+		$elm$json$Json$Decode$int,
+		A3(
+			$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
+			'headline',
+			$elm$json$Json$Decode$string,
+			$elm$json$Json$Decode$succeed($author$project$Shared$Types$Progress))));
+var $author$project$Api$Progress$progressesDecoder = $elm$json$Json$Decode$list($author$project$Api$Progress$progressDecoder);
+var $author$project$Api$Progress$fetchProgress = function (handler) {
+	return $elm$http$Http$get(
+		{
+			expect: A2($elm$http$Http$expectJson, handler, $author$project$Api$Progress$progressesDecoder),
+			url: 'http://localhost:8005/progress.json'
+		});
+};
+var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Shared$Error$toString = function (error) {
+	switch (error.$) {
+		case 'BadUrl':
+			var str = error.a;
+			return 'Bad Url: ' + str;
+		case 'Timeout':
+			return 'Timeout';
+		case 'NetworkError':
+			return 'NetworkError';
+		case 'BadStatus':
+			var code = error.a;
+			return 'Bad Status: ' + $elm$core$String$fromInt(code);
+		default:
+			var str = error.a;
+			return 'Bad Body: ' + str;
+	}
+};
+var $author$project$Features$Progress$update = F2(
+	function (msg, model) {
+		switch (msg.$) {
+			case 'FetchProgress':
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{error: $elm$core$Maybe$Nothing, loading: true}),
+					$author$project$Api$Progress$fetchProgress(
+						function (result) {
+							if (result.$ === 'Ok') {
+								var progress = result.a;
+								return $author$project$Features$Progress$FetchProgressSuccess(progress);
+							} else {
+								var error = result.a;
+								return $author$project$Features$Progress$FetchProgressError(
+									$author$project$Shared$Error$toString(error));
+							}
+						}));
+			case 'FetchProgressSuccess':
+				var progress = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{loading: false, progress: progress}),
+					$elm$core$Platform$Cmd$none);
+			default:
+				var error = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							error: $elm$core$Maybe$Just(error),
+							loading: false
+						}),
+					$elm$core$Platform$Cmd$none);
+		}
+	});
+var $author$project$Features$Responses$FetchResponsesError = function (a) {
+	return {$: 'FetchResponsesError', a: a};
+};
+var $author$project$Features$Responses$FetchResponsesSuccess = function (a) {
+	return {$: 'FetchResponsesSuccess', a: a};
+};
+var $author$project$Api$Api$debug = true;
+var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
+var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
+	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : _Utils_ap($author$project$Api$Api$apiUrl, endpoint);
+};
+var $author$project$Shared$Types$Response = F5(
 	function (id, name, diet, rsvp, time) {
 		return {diet: diet, id: id, name: name, rsvp: rsvp, time: time};
 	});
@@ -6370,7 +6536,6 @@ var $rtfeldman$elm_iso8601_date_strings$DeadEnds$deadEndsToString = function (de
 			A2($elm$core$List$map, $rtfeldman$elm_iso8601_date_strings$DeadEnds$deadEndToString, deadEnds)));
 };
 var $elm$json$Json$Decode$fail = _Json_fail;
-var $elm$json$Json$Decode$string = _Json_decodeString;
 var $elm$parser$Parser$Advanced$Bad = F2(
 	function (a, b) {
 		return {$: 'Bad', a: a, b: b};
@@ -7153,17 +7318,7 @@ var $rtfeldman$elm_iso8601_date_strings$Iso8601$decoder = A2(
 		}
 	},
 	$elm$json$Json$Decode$string);
-var $elm$json$Json$Decode$int = _Json_decodeInt;
-var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
-var $elm$json$Json$Decode$field = _Json_decodeField;
-var $NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required = F3(
-	function (key, valDecoder, decoder) {
-		return A2(
-			$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$custom,
-			A2($elm$json$Json$Decode$field, key, valDecoder),
-			decoder);
-	});
-var $author$project$Main$responseDecoder = A3(
+var $author$project$Api$Responses$responseDecoder = A3(
 	$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
 	'time',
 	$rtfeldman$elm_iso8601_date_strings$Iso8601$decoder,
@@ -7183,59 +7338,81 @@ var $author$project$Main$responseDecoder = A3(
 					$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
 					'response_id',
 					$elm$json$Json$Decode$int,
-					$elm$json$Json$Decode$succeed($author$project$Main$Response))))));
-var $author$project$Main$responsesDecoder = $elm$json$Json$Decode$list($author$project$Main$responseDecoder);
-var $author$project$Main$init = function (_v0) {
-	return _Utils_Tuple2(
-		$author$project$Main$Model($author$project$Main$Loading),
-		$elm$http$Http$get(
-			{
-				expect: A2($elm$http$Http$expectJson, $author$project$Main$Loaded, $author$project$Main$responsesDecoder),
-				url: 'https://api.jannejaroosa.fi/responses/'
-			}));
+					$elm$json$Json$Decode$succeed($author$project$Shared$Types$Response))))));
+var $author$project$Api$Responses$responsesDecoder = $elm$json$Json$Decode$list($author$project$Api$Responses$responseDecoder);
+var $author$project$Api$Responses$fetchResponses = function (handler) {
+	return $elm$http$Http$get(
+		{
+			expect: A2($elm$http$Http$expectJson, handler, $author$project$Api$Responses$responsesDecoder),
+			url: $author$project$Api$Api$buildEndpointUrl('responses')
+		});
 };
-var $elm$core$Platform$Sub$batch = _Platform_batch;
-var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (_v0) {
-	return $elm$core$Platform$Sub$none;
-};
-var $author$project$Main$Failure = function (a) {
-	return {$: 'Failure', a: a};
-};
-var $author$project$Main$Success = function (a) {
-	return {$: 'Success', a: a};
-};
-var $elm$core$Platform$Cmd$batch = _Platform_batch;
-var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $elm$core$Debug$toString = _Debug_toString;
-var $author$project$Main$update = F2(
+var $elm$core$Debug$log = _Debug_log;
+var $author$project$Features$Responses$update = F2(
 	function (msg, model) {
-		if (msg.$ === 'NoOp') {
-			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
-		} else {
-			if (msg.a.$ === 'Ok') {
-				var responses = msg.a.a;
+		switch (msg.$) {
+			case 'FetchResponses':
+				var a = A2($elm$core$Debug$log, 'Fetching', 1);
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{error: $elm$core$Maybe$Nothing, loading: true}),
+					$author$project$Api$Responses$fetchResponses(
+						function (result) {
+							if (result.$ === 'Ok') {
+								var responses = result.a;
+								return $author$project$Features$Responses$FetchResponsesSuccess(responses);
+							} else {
+								var error = result.a;
+								return $author$project$Features$Responses$FetchResponsesError(
+									$author$project$Shared$Error$toString(error));
+							}
+						}));
+			case 'FetchResponsesSuccess':
+				var responses = msg.a;
+				var a = A2($elm$core$Debug$log, 'Success', 1);
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{loading: false, responses: responses}),
+					$elm$core$Platform$Cmd$none);
+			default:
+				var error = msg.a;
+				var a = A2($elm$core$Debug$log, 'Error', 1);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-							state: $author$project$Main$Success(responses)
+							error: $elm$core$Maybe$Just(error),
+							loading: false
 						}),
 					$elm$core$Platform$Cmd$none);
-			} else {
-				var error = msg.a.a;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{
-							state: $author$project$Main$Failure(
-								$elm$core$Debug$toString(error))
-						}),
-					$elm$core$Platform$Cmd$none);
-			}
 		}
 	});
-var $elm$html$Html$div = _VirtualDom_node('div');
+var $author$project$Main$update = F2(
+	function (msg, model) {
+		if (msg.$ === 'ResponsesMsg') {
+			var responsesMsg = msg.a;
+			var _v1 = A2($author$project$Features$Responses$update, responsesMsg, model.responsesModel);
+			var newResponsesModel = _v1.a;
+			var responsesCmd = _v1.b;
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{responsesModel: newResponsesModel}),
+				A2($elm$core$Platform$Cmd$map, $author$project$Main$ResponsesMsg, responsesCmd));
+		} else {
+			var progressMsg = msg.a;
+			var _v2 = A2($author$project$Features$Progress$update, progressMsg, model.progressModel);
+			var newProgressModel = _v2.a;
+			var progressCmd = _v2.b;
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{progressModel: newProgressModel}),
+				A2($elm$core$Platform$Cmd$map, $author$project$Main$ProgressMsg, progressCmd));
+		}
+	});
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -7244,11 +7421,434 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			key,
 			$elm$json$Json$Encode$string(string));
 	});
-var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
+var $elm$html$Html$map = $elm$virtual_dom$VirtualDom$map;
 var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$core$Basics$ge = _Utils_ge;
+var $elm$core$Basics$abs = function (n) {
+	return (n < 0) ? (-n) : n;
+};
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
+	});
+var $elm$core$String$foldr = _String_foldr;
+var $elm$core$String$toList = function (string) {
+	return A3($elm$core$String$foldr, $elm$core$List$cons, _List_Nil, string);
+};
+var $myrho$elm_round$Round$addSign = F2(
+	function (signed, str) {
+		var isNotZero = A2(
+			$elm$core$List$any,
+			function (c) {
+				return (!_Utils_eq(
+					c,
+					_Utils_chr('0'))) && (!_Utils_eq(
+					c,
+					_Utils_chr('.')));
+			},
+			$elm$core$String$toList(str));
+		return _Utils_ap(
+			(signed && isNotZero) ? '-' : '',
+			str);
+	});
+var $elm$core$String$fromFloat = _String_fromNumber;
+var $elm$core$String$cons = _String_cons;
+var $elm$core$Char$fromCode = _Char_fromCode;
+var $myrho$elm_round$Round$increaseNum = function (_v0) {
+	var head = _v0.a;
+	var tail = _v0.b;
+	if (_Utils_eq(
+		head,
+		_Utils_chr('9'))) {
+		var _v1 = $elm$core$String$uncons(tail);
+		if (_v1.$ === 'Nothing') {
+			return '01';
+		} else {
+			var headtail = _v1.a;
+			return A2(
+				$elm$core$String$cons,
+				_Utils_chr('0'),
+				$myrho$elm_round$Round$increaseNum(headtail));
+		}
+	} else {
+		var c = $elm$core$Char$toCode(head);
+		return ((c >= 48) && (c < 57)) ? A2(
+			$elm$core$String$cons,
+			$elm$core$Char$fromCode(c + 1),
+			tail) : '0';
+	}
+};
+var $elm$core$Basics$isInfinite = _Basics_isInfinite;
+var $elm$core$Basics$isNaN = _Basics_isNaN;
+var $elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return $elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $elm$core$String$fromChar = function (_char) {
+	return A2($elm$core$String$cons, _char, '');
+};
+var $elm$core$Bitwise$and = _Bitwise_and;
+var $elm$core$Bitwise$shiftRightBy = _Bitwise_shiftRightBy;
+var $elm$core$String$repeatHelp = F3(
+	function (n, chunk, result) {
+		return (n <= 0) ? result : A3(
+			$elm$core$String$repeatHelp,
+			n >> 1,
+			_Utils_ap(chunk, chunk),
+			(!(n & 1)) ? result : _Utils_ap(result, chunk));
+	});
+var $elm$core$String$repeat = F2(
+	function (n, chunk) {
+		return A3($elm$core$String$repeatHelp, n, chunk, '');
+	});
+var $elm$core$String$padRight = F3(
+	function (n, _char, string) {
+		return _Utils_ap(
+			string,
+			A2(
+				$elm$core$String$repeat,
+				n - $elm$core$String$length(string),
+				$elm$core$String$fromChar(_char)));
+	});
+var $elm$core$String$reverse = _String_reverse;
+var $myrho$elm_round$Round$splitComma = function (str) {
+	var _v0 = A2($elm$core$String$split, '.', str);
+	if (_v0.b) {
+		if (_v0.b.b) {
+			var before = _v0.a;
+			var _v1 = _v0.b;
+			var after = _v1.a;
+			return _Utils_Tuple2(before, after);
+		} else {
+			var before = _v0.a;
+			return _Utils_Tuple2(before, '0');
+		}
+	} else {
+		return _Utils_Tuple2('0', '0');
+	}
+};
+var $elm$core$Tuple$mapFirst = F2(
+	function (func, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		return _Utils_Tuple2(
+			func(x),
+			y);
+	});
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $myrho$elm_round$Round$toDecimal = function (fl) {
+	var _v0 = A2(
+		$elm$core$String$split,
+		'e',
+		$elm$core$String$fromFloat(
+			$elm$core$Basics$abs(fl)));
+	if (_v0.b) {
+		if (_v0.b.b) {
+			var num = _v0.a;
+			var _v1 = _v0.b;
+			var exp = _v1.a;
+			var e = A2(
+				$elm$core$Maybe$withDefault,
+				0,
+				$elm$core$String$toInt(
+					A2($elm$core$String$startsWith, '+', exp) ? A2($elm$core$String$dropLeft, 1, exp) : exp));
+			var _v2 = $myrho$elm_round$Round$splitComma(num);
+			var before = _v2.a;
+			var after = _v2.b;
+			var total = _Utils_ap(before, after);
+			var zeroed = (e < 0) ? A2(
+				$elm$core$Maybe$withDefault,
+				'0',
+				A2(
+					$elm$core$Maybe$map,
+					function (_v3) {
+						var a = _v3.a;
+						var b = _v3.b;
+						return a + ('.' + b);
+					},
+					A2(
+						$elm$core$Maybe$map,
+						$elm$core$Tuple$mapFirst($elm$core$String$fromChar),
+						$elm$core$String$uncons(
+							_Utils_ap(
+								A2(
+									$elm$core$String$repeat,
+									$elm$core$Basics$abs(e),
+									'0'),
+								total))))) : A3(
+				$elm$core$String$padRight,
+				e + 1,
+				_Utils_chr('0'),
+				total);
+			return _Utils_ap(
+				(fl < 0) ? '-' : '',
+				zeroed);
+		} else {
+			var num = _v0.a;
+			return _Utils_ap(
+				(fl < 0) ? '-' : '',
+				num);
+		}
+	} else {
+		return '';
+	}
+};
+var $myrho$elm_round$Round$roundFun = F3(
+	function (functor, s, fl) {
+		if ($elm$core$Basics$isInfinite(fl) || $elm$core$Basics$isNaN(fl)) {
+			return $elm$core$String$fromFloat(fl);
+		} else {
+			var signed = fl < 0;
+			var _v0 = $myrho$elm_round$Round$splitComma(
+				$myrho$elm_round$Round$toDecimal(
+					$elm$core$Basics$abs(fl)));
+			var before = _v0.a;
+			var after = _v0.b;
+			var r = $elm$core$String$length(before) + s;
+			var normalized = _Utils_ap(
+				A2($elm$core$String$repeat, (-r) + 1, '0'),
+				A3(
+					$elm$core$String$padRight,
+					r,
+					_Utils_chr('0'),
+					_Utils_ap(before, after)));
+			var totalLen = $elm$core$String$length(normalized);
+			var roundDigitIndex = A2($elm$core$Basics$max, 1, r);
+			var increase = A2(
+				functor,
+				signed,
+				A3($elm$core$String$slice, roundDigitIndex, totalLen, normalized));
+			var remains = A3($elm$core$String$slice, 0, roundDigitIndex, normalized);
+			var num = increase ? $elm$core$String$reverse(
+				A2(
+					$elm$core$Maybe$withDefault,
+					'1',
+					A2(
+						$elm$core$Maybe$map,
+						$myrho$elm_round$Round$increaseNum,
+						$elm$core$String$uncons(
+							$elm$core$String$reverse(remains))))) : remains;
+			var numLen = $elm$core$String$length(num);
+			var numZeroed = (num === '0') ? num : ((s <= 0) ? _Utils_ap(
+				num,
+				A2(
+					$elm$core$String$repeat,
+					$elm$core$Basics$abs(s),
+					'0')) : ((_Utils_cmp(
+				s,
+				$elm$core$String$length(after)) < 0) ? (A3($elm$core$String$slice, 0, numLen - s, num) + ('.' + A3($elm$core$String$slice, numLen - s, numLen, num))) : _Utils_ap(
+				before + '.',
+				A3(
+					$elm$core$String$padRight,
+					s,
+					_Utils_chr('0'),
+					after))));
+			return A2($myrho$elm_round$Round$addSign, signed, numZeroed);
+		}
+	});
+var $myrho$elm_round$Round$round = $myrho$elm_round$Round$roundFun(
+	F2(
+		function (signed, str) {
+			var _v0 = $elm$core$String$uncons(str);
+			if (_v0.$ === 'Nothing') {
+				return false;
+			} else {
+				if ('5' === _v0.a.a.valueOf()) {
+					if (_v0.a.b === '') {
+						var _v1 = _v0.a;
+						return !signed;
+					} else {
+						var _v2 = _v0.a;
+						return true;
+					}
+				} else {
+					var _v3 = _v0.a;
+					var _int = _v3.a;
+					return function (i) {
+						return ((i > 53) && signed) || ((i >= 53) && (!signed));
+					}(
+						$elm$core$Char$toCode(_int));
+				}
+			}
+		}));
+var $author$project$Features$Progress$viewProgress = function (progress) {
+	return A2(
+		$elm$html$Html$ul,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('Progress')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$li,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('headline')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(progress.headline)
+					])),
+				A2(
+				$elm$html$Html$li,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('amount')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(
+						$elm$core$String$fromInt(progress.amount))
+					])),
+				A2(
+				$elm$html$Html$li,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('time')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(
+						A2($myrho$elm_round$Round$round, 2, progress.average) + 'ms')
+					]))
+			]));
+};
+var $author$project$Features$Progress$viewProgressHeaders = A2(
+	$elm$html$Html$ul,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('Progress'),
+			$elm$html$Html$Attributes$class('header')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$li,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('headline')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Otsikko')
+				])),
+			A2(
+			$elm$html$Html$li,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('amount')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Katsottu')
+				])),
+			A2(
+			$elm$html$Html$li,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('time')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Saavuttamisaika')
+				]))
+		]));
+var $author$project$Features$Progress$view = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('Feature'),
+				$elm$html$Html$Attributes$class('Progress')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$h2,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Seuranta')
+					])),
+				model.loading ? A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('loading')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Loading...')
+					])) : A2(
+				$elm$html$Html$ul,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('ItemList'),
+						$elm$html$Html$Attributes$class('progress')
+					]),
+				A2(
+					$elm$core$List$cons,
+					$author$project$Features$Progress$viewProgressHeaders,
+					A2($elm$core$List$map, $author$project$Features$Progress$viewProgress, model.progress))),
+				function () {
+				var _v0 = model.error;
+				if (_v0.$ === 'Just') {
+					var err = _v0.a;
+					return A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('error')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(err)
+							]));
+				} else {
+					return $elm$html$Html$text('');
+				}
+			}()
+			]));
+};
 var $elm$time$Time$Jan = {$: 'Jan'};
 var $justinmimbs$date$Date$RD = function (a) {
 	return {$: 'RD', a: a};
@@ -7512,7 +8112,6 @@ var $elm$time$Time$toAdjustedMinutes = F2(
 				60000),
 			eras);
 	});
-var $elm$core$Basics$ge = _Utils_ge;
 var $elm$time$Time$toCivil = function (minutes) {
 	var rawDay = A2($elm$time$Time$flooredDiv, minutes, 60 * 24) + 719468;
 	var era = (((rawDay >= 0) ? rawDay : (rawDay - 146096)) / 146097) | 0;
@@ -7577,7 +8176,6 @@ var $justinmimbs$date$Date$fromPosix = F2(
 			A2($elm$time$Time$toMonth, zone, posix),
 			A2($elm$time$Time$toDay, zone, posix));
 	});
-var $elm$core$Debug$log = _Debug_log;
 var $justinmimbs$date$Date$month = A2(
 	$elm$core$Basics$composeR,
 	$justinmimbs$date$Date$toCalendarDate,
@@ -7585,24 +8183,6 @@ var $justinmimbs$date$Date$month = A2(
 		return $.month;
 	});
 var $justinmimbs$date$Date$monthNumber = A2($elm$core$Basics$composeR, $justinmimbs$date$Date$month, $justinmimbs$date$Date$monthToNumber);
-var $elm$core$String$cons = _String_cons;
-var $elm$core$String$fromChar = function (_char) {
-	return A2($elm$core$String$cons, _char, '');
-};
-var $elm$core$Bitwise$and = _Bitwise_and;
-var $elm$core$Bitwise$shiftRightBy = _Bitwise_shiftRightBy;
-var $elm$core$String$repeatHelp = F3(
-	function (n, chunk, result) {
-		return (n <= 0) ? result : A3(
-			$elm$core$String$repeatHelp,
-			n >> 1,
-			_Utils_ap(chunk, chunk),
-			(!(n & 1)) ? result : _Utils_ap(result, chunk));
-	});
-var $elm$core$String$repeat = F2(
-	function (n, chunk) {
-		return A3($elm$core$String$repeatHelp, n, chunk, '');
-	});
 var $elm$core$String$pad = F3(
 	function (n, _char, string) {
 		var half = (n - $elm$core$String$length(string)) / 2;
@@ -7640,7 +8220,7 @@ var $elm$time$Time$Zone = F2(
 		return {$: 'Zone', a: a, b: b};
 	});
 var $elm$time$Time$utc = A2($elm$time$Time$Zone, 0, _List_Nil);
-var $author$project$Main$formatTime = function (time) {
+var $author$project$Features$Responses$formatTime = function (time) {
 	var date = A2(
 		$elm$core$Debug$log,
 		'date',
@@ -7672,9 +8252,7 @@ var $author$project$Main$formatTime = function (time) {
 		$elm$core$String$fromInt(
 			A2($elm$time$Time$toMinute, $elm$time$Time$utc, time))))))))));
 };
-var $elm$html$Html$li = _VirtualDom_node('li');
-var $elm$html$Html$ul = _VirtualDom_node('ul');
-var $author$project$Main$viewResponse = function (response) {
+var $author$project$Features$Responses$viewResponse = function (response) {
 	return A2(
 		$elm$html$Html$ul,
 		_List_fromArray(
@@ -7734,11 +8312,11 @@ var $author$project$Main$viewResponse = function (response) {
 				_List_fromArray(
 					[
 						$elm$html$Html$text(
-						$author$project$Main$formatTime(response.time))
+						$author$project$Features$Responses$formatTime(response.time))
 					]))
 			]));
 };
-var $author$project$Main$viewResponseHeaders = A2(
+var $author$project$Features$Responses$viewResponseHeaders = A2(
 	$elm$html$Html$ul,
 	_List_fromArray(
 		[
@@ -7798,72 +8376,80 @@ var $author$project$Main$viewResponseHeaders = A2(
 					$elm$html$Html$text('Vastausaika')
 				]))
 		]));
-var $author$project$Main$viewResponses = function (model) {
-	var _v0 = model.state;
-	switch (_v0.$) {
-		case 'Success':
-			var responses = _v0.a;
-			return A2(
+var $author$project$Features$Responses$view = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('Feature'),
+				$elm$html$Html$Attributes$class('Responses')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$h2,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Vastaukset')
+					])),
+				model.loading ? A2(
 				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('responses')
-					]),
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$h2,
-						_List_Nil,
-						_List_fromArray(
-							[
-								$elm$html$Html$text('Vastaukset')
-							])),
-						A2(
-						$elm$html$Html$div,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$class('table')
-							]),
-						A2(
-							$elm$core$List$cons,
-							$author$project$Main$viewResponseHeaders,
-							A2($elm$core$List$map, $author$project$Main$viewResponse, responses)))
-					]));
-		case 'Failure':
-			var error = _v0.a;
-			return A2(
-				$elm$html$Html$div,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('responses')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Error: ' + error)
-					]));
-		default:
-			return A2(
-				$elm$html$Html$div,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('responses')
+						$elm$html$Html$Attributes$class('loading')
 					]),
 				_List_fromArray(
 					[
 						$elm$html$Html$text('Loading...')
-					]));
-	}
+					])) : A2(
+				$elm$html$Html$ul,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('ItemList'),
+						$elm$html$Html$Attributes$class('responses')
+					]),
+				A2(
+					$elm$core$List$cons,
+					$author$project$Features$Responses$viewResponseHeaders,
+					A2($elm$core$List$map, $author$project$Features$Responses$viewResponse, model.responses))),
+				function () {
+				var _v0 = model.error;
+				if (_v0.$ === 'Just') {
+					var err = _v0.a;
+					return A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('error')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(err)
+							]));
+				} else {
+					return $elm$html$Html$text('');
+				}
+			}()
+			]));
 };
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				$elm$html$Html$Attributes$id('App')
+				$elm$html$Html$Attributes$class('app')
 			]),
 		_List_fromArray(
 			[
-				$author$project$Main$viewResponses(model)
+				A2(
+				$elm$html$Html$map,
+				$author$project$Main$ResponsesMsg,
+				$author$project$Features$Responses$view(model.responsesModel)),
+				A2(
+				$elm$html$Html$map,
+				$author$project$Main$ProgressMsg,
+				$author$project$Features$Progress$view(model.progressModel))
 			]));
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
