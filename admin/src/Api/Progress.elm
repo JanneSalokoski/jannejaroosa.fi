@@ -1,5 +1,6 @@
 module Api.Progress exposing (fetchProgress)
 
+import Api.Api exposing (buildEndpointUrl)
 import Http
 import Json.Decode as Decode exposing (Decoder, bool, float, int, string)
 import Json.Decode.Pipeline as DP
@@ -9,9 +10,7 @@ import Shared.Types exposing (Progress)
 fetchProgress : (Result Http.Error (List Progress) -> msg) -> Cmd msg
 fetchProgress handler =
     Http.get
-        { url = "http://localhost:8005/progress.json"
-
-        -- , url = "https://api.jannejaroosa.fi/responses/"
+        { url = buildEndpointUrl "progress"
         , expect = Http.expectJson handler progressesDecoder
         }
 

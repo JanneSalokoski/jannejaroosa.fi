@@ -5570,6 +5570,11 @@ var $author$project$Features$Progress$FetchProgressError = function (a) {
 var $author$project$Features$Progress$FetchProgressSuccess = function (a) {
 	return {$: 'FetchProgressSuccess', a: a};
 };
+var $author$project$Api$Api$debug = false;
+var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
+var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
+	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : _Utils_ap($author$project$Api$Api$apiUrl, endpoint);
+};
 var $elm$json$Json$Decode$decodeString = _Json_runOnString;
 var $elm$http$Http$BadStatus_ = F2(
 	function (a, b) {
@@ -6392,7 +6397,7 @@ var $author$project$Api$Progress$fetchProgress = function (handler) {
 	return $elm$http$Http$get(
 		{
 			expect: A2($elm$http$Http$expectJson, handler, $author$project$Api$Progress$progressesDecoder),
-			url: 'http://localhost:8005/progress.json'
+			url: $author$project$Api$Api$buildEndpointUrl('progress')
 		});
 };
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
@@ -6456,11 +6461,6 @@ var $author$project$Features$Responses$FetchResponsesError = function (a) {
 };
 var $author$project$Features$Responses$FetchResponsesSuccess = function (a) {
 	return {$: 'FetchResponsesSuccess', a: a};
-};
-var $author$project$Api$Api$debug = true;
-var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
-var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
-	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : _Utils_ap($author$project$Api$Api$apiUrl, endpoint);
 };
 var $author$project$Shared$Types$Response = F5(
 	function (id, name, diet, rsvp, time) {
