@@ -67,4 +67,4 @@ häämatkatilillemme FI76 5253 1520 1026 59.
 ## Lisätietoa
 
 Lisätietoa häihin liittyen voi kysyä esimerkiksi viestitse Jannelta [(041 313
-0193)](tel://+358413130193) tai Roosalta [(044 607 9227)](tel://+358446079227)
+0193)](tel://+358413130193) tai Roosalta [(044 507 9227)](tel://+358445079227)
