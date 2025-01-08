@@ -5570,7 +5570,7 @@ var $author$project$Features$Progress$FetchProgressError = function (a) {
 var $author$project$Features$Progress$FetchProgressSuccess = function (a) {
 	return {$: 'FetchProgressSuccess', a: a};
 };
-var $author$project$Api$Api$debug = true;
+var $author$project$Api$Api$debug = false;
 var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
 var $elm$core$Debug$log = _Debug_log;
 var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
@@ -7343,10 +7343,14 @@ var $author$project$Api$Responses$responseDecoder = A3(
 					$elm$json$Json$Decode$succeed($author$project$Shared$Types$Response))))));
 var $author$project$Api$Responses$responsesDecoder = $elm$json$Json$Decode$list($author$project$Api$Responses$responseDecoder);
 var $author$project$Api$Responses$fetchResponses = function (handler) {
+	var url = A2(
+		$elm$core$Debug$log,
+		'url',
+		$author$project$Api$Api$buildEndpointUrl('responses'));
 	return $elm$http$Http$get(
 		{
 			expect: A2($elm$http$Http$expectJson, handler, $author$project$Api$Responses$responsesDecoder),
-			url: $author$project$Api$Api$buildEndpointUrl('responses')
+			url: url
 		});
 };
 var $author$project$Features$Responses$update = F2(

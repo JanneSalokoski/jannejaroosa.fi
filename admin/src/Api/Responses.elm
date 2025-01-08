@@ -11,8 +11,12 @@ import Time exposing (Posix, toHour, toMinute, toSecond, utc)
 
 fetchResponses : (Result Http.Error (List Response) -> msg) -> Cmd msg
 fetchResponses handler =
+    let
+        url =
+            Debug.log "url" (buildEndpointUrl "responses")
+    in
     Http.get
-        { url = buildEndpointUrl "responses"
+        { url = url
         , expect = Http.expectJson handler responsesDecoder
         }
 
