@@ -5570,9 +5570,11 @@ var $author$project$Features$Progress$FetchProgressError = function (a) {
 var $author$project$Features$Progress$FetchProgressSuccess = function (a) {
 	return {$: 'FetchProgressSuccess', a: a};
 };
-var $author$project$Api$Api$debug = false;
+var $author$project$Api$Api$debug = true;
 var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://127.0.0.1:8005/' : 'https://api.jannejaroosa.fi/';
+var $elm$core$Debug$log = _Debug_log;
 var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
+	var a = A2($elm$core$Debug$log, 'url', $author$project$Api$Api$apiUrl);
 	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '.json')) : _Utils_ap($author$project$Api$Api$apiUrl, endpoint);
 };
 var $elm$json$Json$Decode$decodeString = _Json_runOnString;
@@ -7347,7 +7349,6 @@ var $author$project$Api$Responses$fetchResponses = function (handler) {
 			url: $author$project$Api$Api$buildEndpointUrl('responses')
 		});
 };
-var $elm$core$Debug$log = _Debug_log;
 var $author$project$Features$Responses$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
