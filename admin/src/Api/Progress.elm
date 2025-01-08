@@ -10,7 +10,7 @@ import Shared.Types exposing (Progress)
 fetchProgress : (Result Http.Error (List Progress) -> msg) -> Cmd msg
 fetchProgress handler =
     Http.get
-        { url = buildEndpointUrl "progress"
+        { url = buildEndpointUrl "progress/stats"
         , expect = Http.expectJson handler progressesDecoder
         }
 

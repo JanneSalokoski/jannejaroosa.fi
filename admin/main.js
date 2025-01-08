@@ -6397,7 +6397,7 @@ var $author$project$Api$Progress$fetchProgress = function (handler) {
 	return $elm$http$Http$get(
 		{
 			expect: A2($elm$http$Http$expectJson, handler, $author$project$Api$Progress$progressesDecoder),
-			url: $author$project$Api$Api$buildEndpointUrl('progress')
+			url: $author$project$Api$Api$buildEndpointUrl('progress/stats')
 		});
 };
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
