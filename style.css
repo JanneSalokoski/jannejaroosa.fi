@@ -85,7 +85,7 @@ main h2:not(:first-of-type):before {
     content: "";
     display: block;
 
-    background-image: url("res/lupiini2.png");
+    background-image: url("res/lupiini.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; /* Ensures the entire image fits within the element */
@@ -97,7 +97,7 @@ main h2:not(:first-of-type):before {
     margin-right: auto;
     margin-bottom: 2rem;
 
-    transform: scaleX(-1) rotate(20deg);
+    transform: rotate(75deg);
 }
 
 h1 {
