@@ -5,7 +5,7 @@ import Date
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Shared.Error
-import Shared.Types exposing (Response)
+import Shared.Types exposing (Response, Token)
 import Task
 import Time exposing (toHour, toMinute, utc)
 
@@ -21,12 +21,12 @@ init : () -> ( Model, Cmd Msg )
 init _ =
     ( Model [] False Nothing
       -- , Task.perform (\_ -> FetchResponses) (Task.succeed ())
-    , Task.perform (\_ -> FetchResponses) (Task.succeed ())
+    , Task.perform (\_ -> FetchResponses Nothing) (Task.succeed ())
     )
 
 
 type Msg
-    = FetchResponses
+    = FetchResponses (Maybe Token)
     | FetchResponsesSuccess (List Response)
     | FetchResponsesError String
 
@@ -34,13 +34,13 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        FetchResponses ->
+        FetchResponses token ->
             let
                 a =
                     Debug.log "Fetching" 1
             in
             ( { model | loading = True, error = Nothing }
-            , fetchResponses
+            , fetchResponses token
                 (\result ->
                     case result of
                         Ok responses ->

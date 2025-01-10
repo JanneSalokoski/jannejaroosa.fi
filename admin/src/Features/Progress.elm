@@ -5,7 +5,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Round
 import Shared.Error
-import Shared.Types exposing (Progress)
+import Shared.Types exposing (Progress, Token)
 import Task
 
 
@@ -19,12 +19,12 @@ type alias Model =
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( Model [] False Nothing
-    , Task.perform (\_ -> FetchProgress) (Task.succeed ())
+    , Task.perform (\_ -> FetchProgress Nothing) (Task.succeed ())
     )
 
 
 type Msg
-    = FetchProgress
+    = FetchProgress (Maybe Token)
     | FetchProgressSuccess (List Progress)
     | FetchProgressError String
 
@@ -32,9 +32,9 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        FetchProgress ->
+        FetchProgress token ->
             ( { model | loading = True, error = Nothing }
-            , fetchProgress
+            , fetchProgress token
                 (\result ->
                     case result of
                         Ok progress ->

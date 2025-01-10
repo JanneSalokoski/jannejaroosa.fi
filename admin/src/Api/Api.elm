@@ -3,13 +3,13 @@ module Api.Api exposing (buildEndpointUrl)
 
 debug : Bool
 debug =
-    False
+    True
 
 
 apiUrl : String
 apiUrl =
     if debug then
-        "http://127.0.0.1:8005/"
+        "http://localhost:8000/"
 
     else
         "https://api.jannejaroosa.fi/"
@@ -18,7 +18,7 @@ apiUrl =
 buildEndpointUrl : String -> String
 buildEndpointUrl endpoint =
     if debug then
-        apiUrl ++ endpoint ++ ".json"
+        apiUrl ++ endpoint ++ "/"
 
     else
         apiUrl ++ endpoint ++ "/"
