@@ -5624,7 +5624,7 @@ var $author$project$Features$Guests$FetchGuestError = function (a) {
 var $author$project$Features$Guests$FetchGuestSuccess = function (a) {
 	return {$: 'FetchGuestSuccess', a: a};
 };
-var $author$project$Api$Api$debug = true;
+var $author$project$Api$Api$debug = false;
 var $author$project$Api$Api$apiUrl = $author$project$Api$Api$debug ? 'http://localhost:8000/' : 'https://api.jannejaroosa.fi/';
 var $author$project$Api$Api$buildEndpointUrl = function (endpoint) {
 	return $author$project$Api$Api$debug ? ($author$project$Api$Api$apiUrl + (endpoint + '/')) : ($author$project$Api$Api$apiUrl + (endpoint + '/'));
