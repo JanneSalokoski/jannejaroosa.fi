@@ -3,7 +3,7 @@ module Api.Api exposing (buildEndpointUrl)
 
 debug : Bool
 debug =
-    True
+    False
 
 
 apiUrl : String
